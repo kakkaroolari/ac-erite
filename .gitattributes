@@ -1,0 +1,2 @@
+ville_db.h filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
