@@ -17,7 +17,7 @@
 
 #include "Ville_Test_Resource.h"
 #include "Panels.hpp"
-#include "FindByGuid.hpp"
+#include "JsonSelectDialog.hpp"
 #include "SettingsHandler.hpp"
 
 #include "DGModule.hpp"
@@ -96,7 +96,7 @@ GSErrCode	__ACENV_CALL	MenuHandler(const API_MenuParams *menuParams)
 	GSErrCode err = NoError;
 
 	if (menuParams->menuItemRef.menuResID == CREATE_PURULAATIKKO_MENU_ID)
-		err = FindDialog::CreatePurulaatikkoFromJson();
+		err = JsonSelectDialog::CreatePurulaatikkoFromJson();
 	Tracer::_trace("CreatePurulaatikkoFromJson err: %d", (int)err);
 
 	return err;

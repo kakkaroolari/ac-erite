@@ -20,13 +20,12 @@ namespace GS {
 }
 
 /**
-* Find dialog
-* Switches to the database, selects the element, and zooms to it.
+* Purulaatikko dialog
+* Open json file selector
 */
 
-class FindDialog : public DG::ModalDialog,
-				   public DG::ButtonItemObserver,
-				   public DG::PanelObserver
+class JsonSelectDialog : public DG::ModalDialog,
+				   public DG::ButtonItemObserver
 {
 private:
 	enum {
@@ -48,25 +47,24 @@ private:
 	DG::TextEdit						guidEdit;
 	DG::Separator						separator;
 
-	const GS::Array<API_DatabaseInfo>&	databaseList;
-	ULong&								databaseIndex;
-	API_Guid&							requestedGuid;
+	//const GS::Array<API_DatabaseInfo>&	databaseList;
+	//ULong&								databaseIndex;
+	//API_Guid&							requestedGuid;
 
 private:
-	FindDialog& operator= (const FindDialog&);	//disabled
+	JsonSelectDialog& operator= (const JsonSelectDialog&);	//disabled
 
-	void FillDatabasePopup ();
+	//void FillDatabasePopup ();
 
 protected:
 	virtual void	ButtonClicked (const DG::ButtonClickEvent& ev) override;
-	virtual void	PanelClosed (const DG::PanelCloseEvent& ev) override;
 
 public:
-	FindDialog (const GS::Array<API_DatabaseInfo>& inDbList, ULong& inDbIndex, API_Guid& inRequestedGuid);
-	~FindDialog ();
+	JsonSelectDialog ();
+	~JsonSelectDialog ();
 
 	static GSErrCode  CreatePurulaatikkoFromJson(void);
-    static GSErrCode  SelectAndZoom  (API_DatabaseInfo homeDB, const API_Guid& requestedGuid);
+    //static GSErrCode  SelectAndZoom  (API_DatabaseInfo homeDB, const API_Guid& requestedGuid);
 };
 
 #endif // __CREATEBYJSON_HPP__
