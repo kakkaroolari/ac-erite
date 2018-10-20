@@ -31,7 +31,7 @@ private:
 	enum {
 		OkButtonId		 = 1,
 		CancelButtonId	 = 2,
-		DatabasePopupId	 = 3,
+		SelectFileId	 = 3,
 		GuidStaticTextId = 4,
 		GuidEditId		 = 5,
 		SeparatorId		 = 6
@@ -42,7 +42,7 @@ private:
 
 	DG::Button							okButton;
 	DG::Button							cancelButton;
-	DG::PopUp							databasePopup;
+	DG::Button							selectFile;
 	DG::LeftText						guidStaticText;
 	DG::TextEdit						guidEdit;
 	DG::Separator						separator;
@@ -55,6 +55,7 @@ private:
 	JsonSelectDialog& operator= (const JsonSelectDialog&);	//disabled
 
 	//void FillDatabasePopup ();
+	static bool	GetOpenFile(IO::Location*	dloc, const char* fileExtensions, const GS::UniString& filterText);
 
 protected:
 	virtual void	ButtonClicked (const DG::ButtonClickEvent& ev) override;

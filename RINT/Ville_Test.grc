@@ -29,11 +29,11 @@
 
 /* Dialog pages */
 
-'GDLG'  32501  Modal | noGrow     300  300  280  120  "Input json" {
+'GDLG'  32501  Modal | noGrow     300  300  280  120  "Purulaatikkogeneraattori" {
 /* [  1] */ Button			  195   85   70   20	LargePlain  "OK"
 /* [  2] */ Button			  110   85   70   20	LargePlain  "Cancel"
-/* [  3] */ PopupControl		   15   15  250   22	80  3
-/* [  4] */ LeftText			   15   47   40   21	LargePlain	vCenter	"GUID:"
+/* [  3] */ Button  		   15   15  250   22	LargePlain  "Select file..."
+/* [  4] */ LeftText			   15   47   40   21	LargePlain	vCenter	"JSON:"
 /* [  5] */ TextEdit			   60   47  205   21	LargePlain  40
 /* [  6] */ Separator			   15   75  250    2
 }
@@ -41,7 +41,7 @@
 'DLGH'  32501  DLG_32501_Create_from_Json {
 1	""							Button_0
 2	""							Button_1
-3	""							PopupControl_0
+3	""							Button_2
 4	""							LeftText_0
 5	""							TextEdit_0
 6	""							Separator_0
