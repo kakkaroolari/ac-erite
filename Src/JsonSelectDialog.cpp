@@ -9,6 +9,7 @@
 //#include "DatabaseGraph.hpp"
 #include	"DGFileDialog.hpp"
 #include "Tracer.h"
+#include "Kreator.h"
 #include <math.h>
 
 #if defined (_MSC_VER)
@@ -47,8 +48,14 @@ JsonSelectDialog::~JsonSelectDialog ()
 void JsonSelectDialog::ButtonClicked (const DG::ButtonClickEvent& ev)
 {
 	if (ev.GetSource () == &okButton) {
-		// TODO: run it
-		PostCloseRequest (DG::ModalDialog::Accept);
+		// check for non-space
+		if (_jsonFile.find_first_not_of(' ') != std::string::npos)
+		{
+			// TODO: run it
+			Kreator kreator;
+			kreator.ReadAndExecuteSpec(_jsonFile);
+			PostCloseRequest(DG::ModalDialog::Accept);
+		}
 	} else if (ev.GetSource () == &cancelButton) {
 		PostCloseRequest (DG::ModalDialog::Cancel);
 	} else if (ev.GetSource() == &selectFile) {
@@ -56,17 +63,24 @@ void JsonSelectDialog::ButtonClicked (const DG::ButtonClickEvent& ev)
 		if (!GetOpenFile(&jsonFileLoc, "json", "*.json"))
 		{
 			// TODO: error not found
+			_jsonFile.clear();
 			return;
 		}
 		IO::Name	jsonName;
 		jsonFileLoc.GetLastLocalName(&jsonName);
 		guidEdit.SetText(jsonName);
 		// debug stuff..
-		IO::URL url;
-		jsonFileLoc.ToURL(&url);
-		char str[512] = { 0 };
-		CHTruncate((const char*)url, str, sizeof(str));
-		Tracer::_trace("Open JSON from: %s", str);
+		//IO::URL url;
+		//jsonFileLoc.ToURL(&url);
+		GS::UniString ee;
+		jsonFileLoc.ToPath(&ee);
+		//char str[512] = { 0 };
+		char* allocated = ee.CopyUTF8();
+		//strcpy(str, allocated);
+		_jsonFile = std::string(allocated);
+		//CHTruncate((const char*)url, str, sizeof(str));
+		Tracer::_trace("Open JSON from: %s", allocated);
+		delete[] allocated;
 	}
 }
 

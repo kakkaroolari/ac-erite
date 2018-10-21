@@ -50,6 +50,7 @@ private:
 	//const GS::Array<API_DatabaseInfo>&	databaseList;
 	//ULong&								databaseIndex;
 	//API_Guid&							requestedGuid;
+	std::string							_jsonFile;
 
 private:
 	JsonSelectDialog& operator= (const JsonSelectDialog&);	//disabled
