@@ -125,7 +125,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Src\APIEnvir.h" />
+    <ClInclude Include="Src\json.hpp" />
     <ClInclude Include="Src\JsonSelectDialog.hpp" />
+    <ClInclude Include="Src\Kreator.h" />
     <ClInclude Include="Src\Tracer.h" />
     <ClInclude Include="Src\Ville_Test.hpp" />
     <ClInclude Include="Src\Ville_Test_Resource.h" />
@@ -135,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Src\$(ProjectName).cpp" />
     <ClCompile Include="Src\JsonSelectDialog.cpp" />
+    <ClCompile Include="Src\Kreator.cpp" />
     <ClCompile Include="Src\Panels.cpp" />
     <ClCompile Include="Src\SettingsHandler.cpp" />
     <ClCompile Include="Src\Tracer.cpp" />

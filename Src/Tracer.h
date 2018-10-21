@@ -7,7 +7,7 @@ public:
 
 public:
 	static void _trace(const char* input, int p);
-	static void _trace(const char* input, char* p);
+	static void _trace(const char* input, const char* p);
 
 private:
 	static const char* _prefix;

@@ -27,7 +27,7 @@ void Tracer::_trace(const char* input, int p)
 	OutputDebugString(msgbuf);
 }
 
-void Tracer::_trace(const char* input, char* p)
+void Tracer::_trace(const char* input, const char* p)
 {
 	char msgbuf[MaxLen] = { 0 };
 	_formatInternal(msgbuf);
